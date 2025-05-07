@@ -1,0 +1,16 @@
+{
+  "name": "jsyaml",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^9.26.0",
+    "jest": "^29.7.0"
+  }
+}

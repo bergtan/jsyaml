@@ -1,0 +1,78 @@
+global:  # Global configuration.
+  namespace: Development  # Environment type, either Production or Development.
+  env_name: test  # Environment name for non-production environments.
+
+server:  # Server configuration.
+  app: lucky  # Application name for the business.
+  server: tickets  # Process server name.
+  bin_path: /usr/local/trpc/bin/  # Path to binary executable files and framework configuration files.
+  conf_path: /usr/local/trpc/conf/  # Path to business configuration files.
+  data_path: /usr/local/trpc/data/  # Path to business data files.
+  filter:  # List of interceptors for all service handler functions.
+    - simpledebuglog
+    - recovery  # Intercept panics from business processing goroutines created by the framework.
+  service:  # Services provided by the business, can have multiple.
+    - name: trpc.lucky.tickets.RailwayTickets  # Route name for the service.
+      ip: 127.0.0.1  # Service listening IP address, can use placeholder ${ip}. Use either ip or nic, ip takes priority.
+      # nic: eth0
+      port: 8000  # Service listening port, can use placeholder ${port}.
+      network: tcp  # Network listening type: tcp or udp.
+      protocol: http  # Application layer protocol: trpc or http.
+      timeout: 10000  # Maximum processing time for requests in milliseconds.
+    
+
+client:  # Backend configuration for client calls.
+  timeout: 2000  # Maximum processing time for all backends.
+  namespace: Development  # Environment for all backends.
+  filter:  # List of interceptors for all backend function calls.
+    - simpledebuglog
+  service:  # Configuration for individual backends.
+    - name: trpc.http.cr12306.Railway  # Service name for the backend.
+      namespace: Development  # Environment for the backend.
+      network: tcp  # Network type for the backend: tcp or udp (configuration takes priority).
+      protocol: http  # Application layer protocol: trpc or http.
+      target: dns://kyfw.12306.cn  # Service address for requests.
+      timeout: 2000   # Maximum processing time for requests.
+    
+
+plugins:  # Plugin configuration.
+  log:  # Log configuration.
+    default:  # Default log configuration, supports multiple outputs.
+      - writer: console  # Console standard output (default).
+        level: debug  # Log level for standard output.
+      - writer: file  # Local file log.
+        level: info  # Log level for local file rolling logs.
+        writer_config:
+          filename: ./trpc.log  # Path to store local file rolling logs.
+          max_size: 10  # Maximum size of local file rolling logs in MB.
+          max_backups: 10  # Maximum number of log files.
+          max_age: 7  # Maximum number of days to keep logs.
+          compress: false  # Whether to compress log files.
+
+localconfig:
+  cache_size: 10 #MB
+  stations:
+    reverse:
+      "KHN": "花湖"
+      "DBN": "大冶北"
+      "HSN": "黄石"
+      "KSN": "黄石北"
+      "WCN": "武昌"
+      "LFN": "武汉东"
+      "HKN": "汉口"
+      "WHN": "武汉"
+      "GGQ": "广州东"
+      "IZQ": "广州南"
+      "GBA": "广州白云"
+      "GBQ": "广州北"
+      "XWQ": "新塘"
+      "BJQ": "深圳东"
+      "IOQ": "深圳北"
+      "SZQ": "深圳"
+      "NZQ": "福田"
+      "GZQ": "广州"
+      "FCA": "凤凰古城"
+      "CSQ": "长沙"
+      "JXA": "张家界西"
+      "CWQ": "长沙南"
+      "DIQ": "张家界"
