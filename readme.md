@@ -4,14 +4,14 @@ Installation
 ### YAML module for node.js
 
 ```
-npm install jsyaml
+npm install yaml-proxy
 ```
 
 API
 ---
 ### `parse(str)`
 ``` javascript
-const yaml = require('jsyaml');
+const yaml = require('yaml-proxy');
 const fs   = require('fs');
 
 // Get document, or throw exception on error
@@ -26,7 +26,7 @@ try {
 
 ### `parseObjct(object)`
 ``` javascript
-const yaml = require('jsyaml');
+const yaml = require('yaml-proxy');
 const fs   = require('fs');
 
 // Get object, or throw exception on error
@@ -39,7 +39,7 @@ try {
 ```
 ### `parseFile(str)`
 ``` javascript
-const yaml = require('jsyaml');
+const yaml = require('yaml-proxy');
 const fs   = require('fs');
 
 // Get file path, or throw exception on error
@@ -53,7 +53,7 @@ try {
 
 ### `saveFile(str, yamlObj)`
 ``` javascript
-const yaml = require('jsyaml');
+const yaml = require('yaml-proxy');
 const fs   = require('fs');
 
 // Get file path, or throw exception on error
@@ -66,7 +66,7 @@ try {
 ```
 ### `string(yamlObj)`
 ``` javascript
-const yaml = require('jsyaml');
+const yaml = require('yaml-proxy');
 const fs   = require('fs');
 
 // Get file path, or throw exception on error

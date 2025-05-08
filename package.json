@@ -1,14 +1,14 @@
 {
-  "name": "jsyaml",
+  "name": "yaml-proxy",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "bergtan",
   "license": "ISC",
-  "description": "",
+  "description": "js yaml parse and stringify",
   "devDependencies": {
     "eslint": "^9.26.0",
     "jest": "^29.7.0"
