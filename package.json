@@ -1,6 +1,6 @@
 {
   "name": "yaml-proxy",
-  "version": "1.0.0",
+  "version": "2025.5.81542",
   "main": "index.js",
   "scripts": {
     "test": "jest"
